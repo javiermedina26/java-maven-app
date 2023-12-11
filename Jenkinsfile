@@ -17,9 +17,9 @@ pipeline{
 				script {
 					echo "building the docker image..."
 					withCredentials([credentialsId: 'dockerhub', passwordVariable: 'PASS', usernameVariable: 'USER']) {
-						sh 'docker build -t javiermedina26/demop-app:jma-2.0 .'
+						sh 'docker build -t javiermedina26/jmedina:jma-2.0 .'
 						sh 'echo $PASS | docker login -u $USER --password-stdin'
-						sh 'docker push javiermedina26/demop-app:jma-2.0'
+						sh 'docker push javiermedina26/jmedina:jma-2.0'
 					}
 				}
 			}
